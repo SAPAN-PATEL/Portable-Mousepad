@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Portable Mac Trackpad</title>
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Status Bar -->
+        <header class="app-header">
+            <div class="brand">
+                <span class="logo">✦</span>
+                <h1>macPad</h1>
+            </div>
+            <div class="connection-status" id="status-container">
+                <span class="status-dot disconnected" id="status-dot"></span>
+                <span class="status-text" id="status-text">Disconnected</span>
+            </div>
+        </header>
+
+        <!-- Quick Access Controls Tab Bar -->
+        <nav class="quick-tabs">
+            <button class="tab-btn active" data-target="trackpad-section">Trackpad</button>
+            <button class="tab-btn" data-target="media-section">Media</button>
+            <button class="tab-btn" data-target="keyboard-section">Keyboard</button>
+            <button class="tab-btn" data-target="settings-section">Settings</button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- 1. Trackpad Section -->
+            <section class="tab-section active" id="trackpad-section">
+                <div class="trackpad-wrapper">
+                    <!-- Touchpad Area -->
+                    <div class="touchpad" id="touchpad">
+                        <div class="touchpad-grid"></div>
+                        <div class="touchpad-prompt">Drag to move • Tap to click • 2-finger scroll</div>
+                    </div>
+                    <!-- Dedicated Scroll Strip -->
+                    <div class="scroll-strip" id="scroll-strip">
+                        <span class="scroll-arrow">▲</span>
+                        <div class="scroll-bar-indicator"></div>
+                        <span class="scroll-arrow">▼</span>
+                    </div>
+                </div>
+
+                <!-- Hardware Click Buttons -->
+                <div class="click-buttons">
+                    <button class="click-btn" id="btn-left">LEFT CLICK</button>
+                    <button class="click-btn" id="btn-right">RIGHT CLICK</button>
+                </div>
+            </section>
+
+            <!-- 2. Media Section -->
+            <section class="tab-section" id="media-section">
+                <div class="control-panel glassmorphic">
+                    <h2>Media Controller</h2>
+                    <div class="media-row volume-control">
+                        <button class="media-btn vol-btn" id="mkey-volume_down">Vol -</button>
+                        <button class="media-btn mute-btn" id="mkey-mute">Mute</button>
+                        <button class="media-btn vol-btn" id="mkey-volume_up">Vol +</button>
+                    </div>
+                    <div class="media-row playback-control">
+                        <button class="media-btn skip-btn" id="mkey-prev">◀◀</button>
+                        <button class="media-btn play-btn" id="mkey-play_pause">Play / Pause</button>
+                        <button class="media-btn skip-btn" id="mkey-next">▶▶</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Keyboard Section -->
+            <section class="tab-section" id="keyboard-section">
+                <div class="control-panel glassmorphic">
+                    <h2>Keyboard Input</h2>
+                    <div class="keyboard-input-group">
+                        <button class="action-btn" id="btn-trigger-keyboard">Open Keyboard</button>
+                        <!-- Hidden text field for mobile keyboard hooks -->
+                        <input type="text" id="hidden-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type here...">
+                    </div>
+                    <div class="keyboard-keys-grid">
+                        <button class="key-btn" data-keycode="53">Esc</button>
+                        <button class="key-btn" data-keycode="48">Tab</button>
+                        <button class="key-btn" data-keycode="51">⌫ Backspace</button>
+                        <button class="key-btn" data-keycode="36">↵ Enter</button>
+                    </div>
+                    <div class="arrow-keys-container">
+                        <div class="arrow-row">
+                            <button class="key-btn arrow-btn" data-keycode="126">▲</button>
+                        </div>
+                        <div class="arrow-row">
+                            <button class="key-btn arrow-btn" data-keycode="123">◀</button>
+                            <button class="key-btn arrow-btn" data-keycode="125">▼</button>
+                            <button class="key-btn arrow-btn" data-keycode="124">▶</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Settings Section -->
+            <section class="tab-section" id="settings-section">
+                <div class="control-panel glassmorphic">
+                    <h2>Trackpad Settings</h2>
+                    
+                    <div class="setting-item">
+                        <div class="setting-label">
+                            <span>Pointer Sensitivity</span>
+                            <span id="sensitivity-value">1.5x</span>
+                        </div>
+                        <input type="range" id="slider-sensitivity" min="0.5" max="3" step="0.1" value="1.5">
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-label">
+                            <span>Scroll Speed</span>
+                            <span id="scroll-speed-value">1.0x</span>
+                        </div>
+                        <input type="range" id="slider-scroll-speed" min="0.2" max="2" step="0.1" value="1.0">
+                    </div>
+
+                    <div class="setting-item toggle-item">
+                        <span>Haptic Vibration Feedback</span>
+                        <label class="switch">
+                            <input type="checkbox" id="toggle-haptics" checked>
+                            <span class="slider-round"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script loading -->
+    <script src="app.js"></script>
+</body>
+</html>
